@@ -24,25 +24,25 @@ const InitialScreen = ({ onOpenComplete }) => {
   };
 
   return (
-    <motion.div 
-      initial={{ opacity: 0 }} 
-      animate={{ opacity: 1 }} 
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } }}
       className="dark-bg"
-      style={{ 
-        height: '100vh', 
+      style={{
+        height: '100vh',
         width: '100%',
-        display: 'flex', 
-        flexDirection: 'column', 
-        alignItems: 'center', 
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
         justifyContent: 'center',
         position: 'relative',
         overflow: 'hidden'
       }}
     >
       {/* Subtle light rays/particles */}
-      <motion.div 
-        animate={{ 
+      <motion.div
+        animate={{
           backgroundPosition: ['0% 0%', '100% 100%'],
           opacity: [0.2, 0.5, 0.2]
         }}
@@ -63,17 +63,17 @@ const InitialScreen = ({ onOpenComplete }) => {
         transition={{ delay: 0.5, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
         style={{ marginBottom: '6rem', zIndex: 1, textAlign: 'center' }}
       >
-        <h1 style={{ 
-          fontSize: '1.6rem', 
-          fontWeight: 400, 
+        <h1 style={{
+          fontSize: '1.6rem',
+          fontWeight: 400,
           letterSpacing: '-0.02em',
           color: 'rgba(255,255,255,0.95)',
           marginBottom: '0.8rem'
         }}>
           Oka chinna request undi...
         </h1>
-        <p style={{ 
-          color: 'rgba(255,255,255,0.4)', 
+        <p style={{
+          color: 'rgba(255,255,255,0.4)',
           fontSize: '0.95rem',
           fontWeight: 300,
           letterSpacing: '0.01em'
@@ -82,40 +82,40 @@ const InitialScreen = ({ onOpenComplete }) => {
         </p>
       </motion.div>
 
-      <motion.div 
+      <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.8, duration: 1, ease: [0.16, 1, 0.3, 1] }}
         ref={containerRef}
         className="ios-slider-track"
-        style={{ 
-          width: '80%', 
-          maxWidth: '300px', 
-          height: '64px', 
-          borderRadius: '32px', 
+        style={{
+          width: '80%',
+          maxWidth: '300px',
+          height: '64px',
+          borderRadius: '32px',
           position: 'relative',
           display: 'flex',
           alignItems: 'center',
           zIndex: 1
         }}
       >
-        <motion.div 
+        <motion.div
           animate={{ opacity: isUnlocked ? 0 : 1 }}
           transition={{ duration: 0.4 }}
-          style={{ 
-            position: 'absolute', 
-            width: '100%', 
-            textAlign: 'center', 
-            color: 'rgba(255,255,255,0.3)', 
-            fontWeight: 400, 
+          style={{
+            position: 'absolute',
+            width: '100%',
+            textAlign: 'center',
+            color: 'rgba(255,255,255,0.3)',
+            fontWeight: 400,
             letterSpacing: '0.02em',
             fontSize: '0.95rem',
-            pointerEvents: 'none' 
+            pointerEvents: 'none'
           }}
         >
           Slide to open
         </motion.div>
-        
+
         <motion.div
           drag="x"
           dragConstraints={containerRef}
@@ -124,10 +124,10 @@ const InitialScreen = ({ onOpenComplete }) => {
           animate={isUnlocked ? { x: containerWidth - 60 } : { x: 0 }}
           transition={{ type: "spring", stiffness: 400, damping: 30 }}
           className="ios-slider-thumb"
-          style={{ 
-            width: '56px', 
-            height: '56px', 
-            borderRadius: '50%', 
+          style={{
+            width: '56px',
+            height: '56px',
+            borderRadius: '50%',
             position: 'absolute',
             left: '4px',
             display: 'flex',
