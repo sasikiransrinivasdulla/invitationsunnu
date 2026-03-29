@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-color: #fcfbf9; /* light cream */
+  --text-primary: #1d1d1f;
+  --text-secondary: #86868b;
+  --accent-primary: #a78bfa;
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --shadow-soft: 0 10px 40px rgba(0,0,0,0.04);
+  --envelope-body: #f4eee8;
+  --envelope-flap: #e8ded3;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Base Wrapper */
+#root {
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-color);
+}
+
+/* Premium Glass Card */
+.premium-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft);
+  border-radius: 24px;
+}
+
+/* iOS-Style Slider */
+.ios-slider-track {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.ios-slider-thumb {
+  background: linear-gradient(135deg, #ffffff, #e0e0e0);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15), inset 0 -2px 4px rgba(0,0,0,0.05);
+}
+
+/* Refined Buttons */
+.btn {
+  padding: 14px 28px;
+  border-radius: 100px;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2c2c2e, #1c1c1e);
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.btn-primary:active {
+  transform: scale(0.96);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid rgba(28, 28, 30, 0.15);
+}
+
+.btn-secondary:active {
+  transform: scale(0.96);
+}
+
+/* Texture */
+.paper-texture {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  opacity: 0.3;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  z-index: 0;
+  border-radius: inherit;
+}
+
+/* Animations */
+.glow-text {
+  animation: softGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes softGlow {
+  0% { text-shadow: 0 0 10px rgba(0, 0, 0, 0.05); }
+  100% { text-shadow: 0 0 20px rgba(0, 0, 0, 0.15), 0 0 30px rgba(0, 0, 0, 0.05); }
+}
+
+.dark-bg {
+  background: #0a0a0c;
+  color: #fff;
+}
