@@ -7,7 +7,7 @@ const LetterContent = ({ onAccept }) => {
 
   const maxNoClicks = 10;
   const isNoGone = noCount >= maxNoClicks;
-  
+
   const handleNoClick = () => {
     if (noCount < maxNoClicks) {
       setNoCount(prev => prev + 1);
@@ -34,23 +34,23 @@ const LetterContent = ({ onAccept }) => {
       }}
     >
       {/* Subtle background parallax images */}
-      <motion.div 
-        animate={{ y: [0, -15, 0], scale: [1, 1.05, 1] }} 
+      <motion.div
+        animate={{ y: [0, -15, 0], scale: [1, 1.05, 1] }}
         transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
         style={{
           position: 'absolute', top: '10%', left: '-10%', width: '250px', height: '250px',
           backgroundImage: 'url(/campus1.jpg)', backgroundSize: 'cover', opacity: 0.1, filter: 'blur(20px)', borderRadius: '50%', zIndex: 0
         }}
       />
-      <motion.div 
-        animate={{ y: [0, 20, 0], scale: [1.05, 1, 1.05] }} 
+      <motion.div
+        animate={{ y: [0, 20, 0], scale: [1.05, 1, 1.05] }}
         transition={{ duration: 25, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
         style={{
           position: 'absolute', bottom: '15%', right: '-10%', width: '300px', height: '300px',
           backgroundImage: 'url(/campus2.jpg)', backgroundSize: 'cover', opacity: 0.08, filter: 'blur(25px)', borderRadius: '50%', zIndex: 0
         }}
       />
-      
+
       {/* The Premium Letter Card */}
       <motion.div
         initial={{ y: 60, opacity: 0, scale: 0.95 }}
@@ -87,9 +87,9 @@ const LetterContent = ({ onAccept }) => {
             flexShrink: 0
           }}
         >
-          <img 
-            src="/akka.jpg" 
-            alt="Akka" 
+          <img
+            src="/akka.jpg"
+            alt="Akka"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             onError={(e) => {
               e.target.src = 'https://ui-avatars.com/api/?name=Akka&background=2c2c2e&color=fff&size=120';
@@ -111,7 +111,7 @@ const LetterContent = ({ onAccept }) => {
             textAlign: 'center',
           }}
         >
-          GANDHARAPU MOUNIKA
+          RAMISETTI JYOTHIRMAYI
         </motion.h2>
 
         {/* Letter Text - Left Aligned */}
@@ -154,32 +154,32 @@ const LetterContent = ({ onAccept }) => {
         >
           <AnimatePresence>
             {!isNoGone && (
-               <motion.button
-                 key="no-btn"
-                 onClick={handleNoClick}
-                 className="btn btn-secondary"
-                 initial={{ scale: 1, opacity: 1 }}
-                 animate={{ 
-                   scale: Math.max(0.6, 1 - (noCount * 0.05)), 
-                   x: noPosition.x, 
-                   y: noPosition.y,
-                   opacity: 1 - (noCount * 0.08)
-                 }}
-                 exit={{ opacity: 0, scale: 0 }}
-                 transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-                 style={{ zIndex: 10 }}
-               >
-                 Ranu
-               </motion.button>
+              <motion.button
+                key="no-btn"
+                onClick={handleNoClick}
+                className="btn btn-secondary"
+                initial={{ scale: 1, opacity: 1 }}
+                animate={{
+                  scale: Math.max(0.6, 1 - (noCount * 0.05)),
+                  x: noPosition.x,
+                  y: noPosition.y,
+                  opacity: 1 - (noCount * 0.08)
+                }}
+                exit={{ opacity: 0, scale: 0 }}
+                transition={{ type: 'spring', stiffness: 200, damping: 20 }}
+                style={{ zIndex: 10 }}
+              >
+                Ranu
+              </motion.button>
             )}
           </AnimatePresence>
 
           <motion.button
             onClick={onAccept}
             className="btn btn-primary"
-            animate={{ 
+            animate={{
               scale: isNoGone ? 1.15 : 1 + (noCount * 0.02),
-              x: isNoGone ? '-50%' : 0, 
+              x: isNoGone ? '-50%' : 0,
               left: isNoGone ? '50%' : 'auto',
               position: isNoGone ? 'absolute' : 'relative'
             }}
